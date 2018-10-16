@@ -18,11 +18,12 @@ CONTENT_WEIGHT = 1
 STYLE_WEIGHT = 5
 TV_WEIGHT = 1e-6
 LEARNING_RATE = 1e-3
-NUM_EPOCHS=5
-BATCH_SIZE=4
+NUM_EPOCHS = 5
+BATCH_SIZE = 4
 VGG_PATH = 'imagenet-vgg-verydeep-19.mat'
 CHECKPOINT_ITERATIONS = 100
 SAVE_PATH = 'network'
+
 
 def build_parser():
     parser = ArgumentParser()
@@ -83,6 +84,7 @@ def build_parser():
 
     return parser
 
+
 def check_opts(opts):
     assert exists(opts.style), "style path not found!"
     assert exists(opts.train_path), "train path not found!"
@@ -132,9 +134,9 @@ def main():
 
         saver = tf.train.Saver()
         if (iteration % 100 == 0):
-            saver.save(network, opts.save_path + '/fast_style_network.ckpt')
+            saver.save(network, options.save_path + '/fast_style_network.ckpt')
 
-        saver.save(network, opts.save_path + '/fast_style_network.ckpt')
+        saver.save(network, options.save_path + '/fast_style_network.ckpt')
 
 
 def print_losses(losses):
